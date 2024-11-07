@@ -57,3 +57,8 @@ console.log(provinces.sort());
 // 5. **Filtering Cape**: Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
 
 console.log(provinces.filter((province) => !province.includes(`Cape`)));
+
+// 6. **Finding 'S'**: Create a boolean array using `map` and `some` to determine if a name contains the letter 'S'.
+const nameHasS = (name) => name.includes(`S`) || name.includes(`s`);
+console.log(names.map(nameHasS));
+console.log(names.some(nameHasS));
