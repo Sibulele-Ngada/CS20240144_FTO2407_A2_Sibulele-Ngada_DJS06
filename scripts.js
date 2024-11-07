@@ -34,11 +34,9 @@ const products = [
 
 let newArray = [];
 names.forEach((name) => {
-  newArray.push(name);
   console.log(name);
 });
 provinces.forEach((province) => {
-  newArray.map((item) => `${item} (${province})`);
   console.log(province);
 });
 
@@ -51,3 +49,7 @@ console.log(provinces.map((province) => province.toUpperCase()));
 // 3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
 
 console.log(names.map((name) => name.length));
+
+// 4. **Sorting**: Use `sort` to alphabetically sort the provinces.
+
+console.log(provinces.sort());
