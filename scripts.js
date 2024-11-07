@@ -28,20 +28,26 @@ const products = [
   { product: "tea", price: "" },
 ];
 
+// Exercises
+
 // 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
 
-// let newArray = [];
-// names.forEach((name) => {
-//   newArray.push(name);
-//   console.log(name);
-// });
-// provinces.forEach((province) => {
-//   newArray.map((item) => `${item} (${province})`);
-//   console.log(province);
-// });
+let newArray = [];
+names.forEach((name) => {
+  newArray.push(name);
+  console.log(name);
+});
+provinces.forEach((province) => {
+  newArray.map((item) => `${item} (${province})`);
+  console.log(province);
+});
 
-// newArray.forEach((item) => console.log(item));
+newArray.forEach((item) => console.log(item));
 
 // 2. **Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console.
 
 console.log(provinces.map((province) => province.toUpperCase()));
+
+// 3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
+
+console.log(names.map((name) => name.length));
