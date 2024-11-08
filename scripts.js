@@ -53,3 +53,8 @@ console.log(names.map(nameHasS));
 console.log(names.some(nameHasS));
 
 // 7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
+
+// Advanced Exercises
+
+// 1. **Log Products**: Iterate over the products array, logging each product name.
+products.forEach((product) => console.log(product.product));
