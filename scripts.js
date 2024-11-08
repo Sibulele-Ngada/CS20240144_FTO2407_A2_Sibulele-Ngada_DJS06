@@ -67,5 +67,12 @@ console.log(
   products
     .filter((product) => Number(product.price)) // filter missing prices
     .map((product) => Number(product.price)) // convert string to numbers
-    .reduce((acc, price) => acc + price) // calculate total
+    .reduce((total, price) => total + price) // calculate total
+);
+
+// 4. **Concatenate Product Names**: Use `reduce` to concatenate all product names into a single string.
+console.log(
+  products
+    .map((product) => product.product)
+    .reduce((list, name) => list.concat(name))
 );
