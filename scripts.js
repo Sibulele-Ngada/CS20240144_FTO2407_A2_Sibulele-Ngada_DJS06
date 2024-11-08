@@ -31,34 +31,25 @@ const products = [
 // Exercises
 
 // 1. **ForEach Basics**: Use `forEach` to log each name and each province to the console. Then, log each name with a matching province in the format "Name (Province)".
-
-let newArray = [];
-names.forEach((name) => {
-  console.log(name);
-});
-provinces.forEach((province) => {
-  console.log(province);
-});
-
-newArray.forEach((item) => console.log(item));
+names.forEach((name) => console.log(name));
+provinces.forEach((province) => console.log(province));
+names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
 
 // 2. **Uppercase Transformation**: Use `map` to create a new array of province names in all uppercase. Log the new array to the console.
-
 console.log(provinces.map((province) => province.toUpperCase()));
 
 // 3. **Name Lengths**: Create a new array using `map` that contains the length of each name.
-
 console.log(names.map((name) => name.length));
 
 // 4. **Sorting**: Use `sort` to alphabetically sort the provinces.
-
 console.log(provinces.sort());
 
 // 5. **Filtering Cape**: Use `filter` to remove provinces containing "Cape". Log the count of remaining provinces.
-
 console.log(provinces.filter((province) => !province.includes(`Cape`)));
 
 // 6. **Finding 'S'**: Create a boolean array using `map` and `some` to determine if a name contains the letter 'S'.
 const nameHasS = (name) => name.includes(`S`) || name.includes(`s`);
 console.log(names.map(nameHasS));
 console.log(names.some(nameHasS));
+
+// 7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
