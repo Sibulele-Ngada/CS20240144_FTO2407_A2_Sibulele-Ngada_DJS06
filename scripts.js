@@ -76,3 +76,16 @@ console.log(
     .map((product) => product.product)
     .reduce((list, name) => list.concat(name))
 );
+
+// 5. **Find Extremes in Prices**: Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
+console.log(
+  `Highest: ${Math.max(
+    ...products
+      .filter((product) => Number(product.price))
+      .map((product) => Number(product.price))
+  )}. Lowest: ${Math.min(
+    ...products
+      .filter((product) => Number(product.price))
+      .map((product) => Number(product.price))
+  )}.`
+);
