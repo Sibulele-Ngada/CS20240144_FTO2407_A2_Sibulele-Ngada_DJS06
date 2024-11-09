@@ -53,6 +53,14 @@ console.log(names.map(nameHasS));
 console.log(names.some(nameHasS));
 
 // 7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
+const obj = names.reduce((acc, name, index) => {
+  return {
+    ...acc,
+    [name]: provinces[index],
+  };
+}, {});
+
+console.log(obj);
 
 // Advanced Exercises
 
@@ -60,12 +68,12 @@ console.log(names.some(nameHasS));
 products.forEach((product) => console.log(product.product));
 
 // 2. **Filter by Name Length**: Filter out products with names longer than 5 characters.
-console.log(products.filter((product) => product.product.length > 5));
+console.log(products.filter((product) => product.product.length < 5));
 
 // 3. **Price Manipulation**: Filter out products without prices, convert string prices to numbers, and calculate the total price using `reduce`.
 console.log(
   products
-    .filter((product) => Number(product.price)) // filter missing prices
+    .filter((product) => Number(product.price)) // filter out missing prices
     .map((product) => Number(product.price)) // convert string to numbers
     .reduce((total, price) => total + price) // calculate total
 );
@@ -89,3 +97,7 @@ console.log(
       .map((product) => Number(product.price))
   )}.`
 );
+
+// 6. **Object Transformation**: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
+
+console.log(Object.entries(products));
