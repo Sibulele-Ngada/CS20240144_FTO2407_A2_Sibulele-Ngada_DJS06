@@ -48,19 +48,19 @@ console.log(provinces.sort());
 console.log(provinces.filter((province) => !province.includes(`Cape`)));
 
 // 6. **Finding 'S'**: Create a boolean array using `map` and `some` to determine if a name contains the letter 'S'.
-const nameHasS = (name) => name.includes(`S`) || name.includes(`s`);
+const nameHasS = (name) => name.toUpperCase().includes(`S`);
 console.log(names.map(nameHasS));
 console.log(names.some(nameHasS));
 
 // 7. **Creating Object Mapping**: Use `reduce` to transform the names array into an object mapping names to their respective provinces.
-const obj = names.reduce((acc, name, index) => {
-  return {
-    ...acc,
-    [name]: provinces[index],
-  };
-}, {});
-
-console.log(obj);
+console.log(
+  names.reduce((acc, name, index) => {
+    return {
+      ...acc,
+      [name]: provinces[index],
+    };
+  }, {})
+);
 
 // Advanced Exercises
 
@@ -68,7 +68,7 @@ console.log(obj);
 products.forEach((product) => console.log(product.product));
 
 // 2. **Filter by Name Length**: Filter out products with names longer than 5 characters.
-console.log(products.filter((product) => product.product.length < 5));
+console.log(products.filter((product) => product.product.length <= 5));
 
 // 3. **Price Manipulation**: Filter out products without prices, convert string prices to numbers, and calculate the total price using `reduce`.
 console.log(
@@ -81,7 +81,7 @@ console.log(
 // 4. **Concatenate Product Names**: Use `reduce` to concatenate all product names into a single string.
 console.log(
   products
-    .map((product) => product.product)
+    .map((product) => product.product) // Return only the names
     .reduce((list, name) => list.concat(name))
 );
 
@@ -89,15 +89,19 @@ console.log(
 console.log(
   `Highest: ${Math.max(
     ...products
-      .filter((product) => Number(product.price))
-      .map((product) => Number(product.price))
+      .filter((product) => Number(product.price)) // filter out missing prices
+      .map((product) => Number(product.price)) // filter out missing prices
   )}. Lowest: ${Math.min(
     ...products
-      .filter((product) => Number(product.price))
-      .map((product) => Number(product.price))
+      .filter((product) => Number(product.price)) // filter out missing prices
+      .map((product) => Number(product.price)) // filter out missing prices
   )}.`
 );
 
 // 6. **Object Transformation**: Using `Object.entries` and `reduce`, recreate the products object with keys 'name' and 'cost', maintaining their original values.
-
-console.log(Object.entries(products));
+console.log(
+  Object.entries(products).reduce((acc, cur) => {
+    const { product, price } = cur[1]; // Index 1 used becuase Object.entries spreads index of original array into result
+    return [...acc, { name: product, cost: price }];
+  }, [])
+);
